@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AppPeriodico.Models.Comentario>
+
+@{
+     ViewBag.Title = "Index";
+}
+
+    <html>
+    <body>
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Comentarios</b></h1>
+    </body>
+    </html>
+    <p>
+        @Html.ActionLink("Crear nuevo comentario", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estatus)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Comentario", new { id = item.idComentario })'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Comentario", new { id = item.idComentario })'"> |
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Comentario", new { id = item.idComentario })'"> 
+            </td>
+        </tr>
+    }
+    
+    </table>
+

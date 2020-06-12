@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AppPeriodico.Models.Registro>
+
+@{
+    ViewBag.Title = "Index";
+}
+<html>
+<body style="background-color: darksalmon">
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Ìndice</b></h1>
+</body>
+</html>
+<p>
+    <input type="button" value="Crear Nuevo Registro" class="btn btn-default" onclick="location.href='@Url.Action("Create" ,"Registro")'">
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publicacion.NombrePublicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publicacion.NombrePublicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)
+            </td>
+            <td>
+
+
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Registro", new { id = item.idRegistro })'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Registro", new { id = item.idRegistro })'">|
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Registro", new { id = item.idRegistro })'">
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <input type="button" value="Regresar al Menú" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Profile")'">
+
+</p>

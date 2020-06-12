@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AppPeriodico.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <html>
+    <body style="background-color: darksalmon">
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Índice</b></h1>
+    </body>
+    </html>
+    <p>
+        <input type="button" value="Crear Nuevo Usuario" class="btn btn-default" onclick="location.href='@Url.Action("Create" ,"Usuario")'">
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contraseña)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoUsuario.TipoUsuario1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoUsuario.TipoUsuario1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario.Descripcion)
+        </td>
+        <td>
+
+            <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Usuario", new { id = item.idUsuario })'"> |
+            <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Usuario", new { id = item.idUsuario })'">|
+            <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Usuario", new { id = item.idUsuario })'">
+        </td>
+    </tr>
+
+        }
+   
+
+</table>
+    <p>
+        <input type="button" value="Regresar" class="btn btn-default" onclick="location.href='@Url.Action("Usuario", "Home")'">
+    </p>

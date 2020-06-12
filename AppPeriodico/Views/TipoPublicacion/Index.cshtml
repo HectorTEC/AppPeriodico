@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AppPeriodico.Models.TipoPublicacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+<body style="background-color: darksalmon">
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Índice</b></h1>
+</body>
+</html>
+<p>
+    @Html.ActionLink("Crear Tipo de Publicacion", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "TipoPublicacion", new { id = item.idTipoPublicacion })'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "TipoPublicacion", new { id = item.idTipoPublicacion })'">|
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "TipoPublicacion", new { id = item.idTipoPublicacion })'">
+            </td>
+        </tr>
+    }
+</table>
+

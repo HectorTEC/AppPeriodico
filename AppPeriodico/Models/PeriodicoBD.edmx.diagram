@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4b65d24c5ab4978a119f15224b3fb78" Name="Diagram1">
+        <EntityTypeShape EntityType="BDPeriodicoModel.Categoria" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Comentario" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Modulo" Width="1.5" PointX="1.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Operacion" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Publicacion" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Registro" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.RolOperacion" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.TipoPublicacion" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDPeriodicoModel.Usuario" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Publicaci__idCat__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Usuario__idComen__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Operacion__idMod__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__RolOperac__idOpe__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Publicaci__idTip__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Publicaci__idUsu__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Registro__idPubl__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Registro__idUsua__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__RolOperac__idTip__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="BDPeriodicoModel.FK__Usuario__idTipoU__0F624AF8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

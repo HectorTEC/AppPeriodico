@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<html>
+<body 
+background-size: 100% auto">
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Menú</b></h1>
+</body>
+</html>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-5">
+        <p>
+            <input type="button" value="Categoria" class="btn btn-default fa-align-center" onclick="location.href='@Url.Action("Index" ,"Categoria")'">
+        </p>
+        <p>
+            <input type="button" value="Publicacion" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Publicacion")'">
+        </p>
+        <p>
+            <input type="button" value="Registro" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Registro")'">
+        </p>
+        <p>
+            <input type="button" value="TipoUsuario" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"TipoUsuario")'">
+        </p>
+        <p>
+            <input type="button" value="TipoPublicacion" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"TipoPublicacion")'">
+        <p>
+            <input type="button" value="Usuario" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Usuario")'">
+        </p>
+        <p>
+            <input type="button" value="Comentario" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Comentario")'">
+        </p>
+        <p>
+            <input type="button" value="Cerrar Sesón" class="btn btn-default" onclick="location.href='@Url.Action("Index" ,"Home")'">
+        </p>
+    </div>
+</div>
+

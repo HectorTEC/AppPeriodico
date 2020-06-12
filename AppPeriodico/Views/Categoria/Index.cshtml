@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AppPeriodico.Models.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+<body>
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Categorias</b></h1>
+</body>
+</html>
+
+<p>
+    <div class="form-horizontal text-center">
+        @Html.ActionLink("Crear Nuevo", "Create", "Categoria")
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Categoria", new { id = item.idCategoria })'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Categoria", new { id = item.idCategoria })'">|
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Categoria", new { id = item.idCategoria })'">
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <input type="button" value="Regresar al Menú" class="btn btn-default" onclick="location.href='@Url.Action("Categoria" ,"Home")'">
+
+</p>

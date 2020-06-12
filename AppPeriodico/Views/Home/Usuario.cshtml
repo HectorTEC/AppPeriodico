@@ -1,0 +1,55 @@
+﻿
+@model List<AppPeriodico.Models.ViewModels.ListUsuarioViewModels>
+@{
+    ViewBag.Title = "Mis Usuarios";
+}
+
+<html>
+<body>
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Usuarios</b></h1>
+</body>
+</html>
+<p>
+    <input type="button" value="Crear Nuevo Usuario" class="btn btn-default" onclick="location.href='@Url.Action("Create","Usuario")'"> 
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Nombre Usuario</th>
+                <th>Contraseña</th>
+                <th>Tipo de Usuario</th>
+                <th>Comentario</th>
+                <th>Operacion</th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+        <tr>
+
+            <td>@oElemento.idUsuario</td>
+            <td>@oElemento.NombreUsuario</td>
+            <td>@oElemento.Contraseña</td>
+            <td>@oElemento.idTipoUsuario</td>
+            <td>@oElemento.idComentario</td>
+            <td>
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit","Usuario", new { id= oElemento.idUsuario})'"> |
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete","Usuario", new { id= oElemento.idUsuario})'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details","Usuario", new { id= oElemento.idUsuario})'">
+            </td>
+        </tr>
+
+            }
+        </table>
+    </div>
+
+</div>

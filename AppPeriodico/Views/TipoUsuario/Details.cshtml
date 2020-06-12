@@ -1,0 +1,46 @@
+﻿@model AppPeriodico.Models.TipoUsuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <html>
+    <body style="background-color: darksalmon">
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Detalles de Tipo de Usuario</b></h1>
+    </body>
+    </html>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoUsuario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoUsuario1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "TipoUsuario", new { id = Model.idTipoUsuario })'">
+    | <input type="button" value="Regresar" class="btn btn-default" onclick="location.href='@Url.Action("Index", "TipoUsuario")'">
+</p>

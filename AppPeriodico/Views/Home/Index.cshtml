@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <html>
+    <body>
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Publicaciones</b></h1>
+    </body>
+    </html>
+    <p>
+        <input type="button" value="Crear Nueva Publicación" class="btn btn-default" onclick="location.href='@Url.Action("Create","Publicacion")'"> 
+    </p>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+
+                    <th>Número de Publicacion</th>
+                    <th>Categoria</th>
+                    <th>Nombre de Publicacion</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>TipoPublicacion</th>
+
+                    <th>Operaciones</th>
+                </tr>
+                @foreach (var oElemento in Model)
+                {
+            <tr>
+                <td>@oElemento.idPublicacion</td>
+                <td>@oElemento.idCategoria</td>
+                <td>@oElemento.NombrePublicacion</td>
+                <td>@oElemento.Descripcion</td>
+                <td>@oElemento.FechaPublicacion</td>
+                <td>@oElemento.idUsuario</td>
+                <td>@oElemento.idTipoPublicacion</td>
+                <td>
+                    <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit","Publicacion", new { id= oElemento.idPublicacion})'"> |
+                    <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete","Publicacion", new { id= oElemento.idPublicacion})'"> |
+                    <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details","Publicacion", new { id= oElemento.idPublicacion})'">
+                </td>
+            </tr>
+
+                }
+            </table>
+        </div>
+
+    </div>

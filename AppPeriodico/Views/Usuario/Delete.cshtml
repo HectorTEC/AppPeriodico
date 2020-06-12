@@ -1,0 +1,69 @@
+﻿@model AppPeriodico.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <html>
+    <body style="background-color: darksalmon">
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>¿Está seguro de Eliminar este Usuario?</b></h1>
+    </body>
+    </html>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreUsuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NombreUsuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoUsuario.TipoUsuario1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipoUsuario.TipoUsuario1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comentario.Descripcion)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color text-center">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            <input type="button" value="Regresar" class="btn btn-default" onclick="location.href='@Url.Action("Usuario", "Home")'">
+        </div>
+    }
+</div>

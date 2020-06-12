@@ -1,0 +1,59 @@
+﻿Tipo Usuario
+
+@model IEnumerable<AppPeriodico.Models.TipoUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<html>
+<body style="background-color: darksalmon">
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Tipo de Usuario</b></h1>
+</body>
+</html>
+<p>
+    <input type="button" value="Crear Nuevo Tipo de Usuario" class="btn btn-default" onclick="location.href='@Url.Action("Create" ,"TipoUsuario")'">
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoUsuario1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoUsuario1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "TipoUsuario", new { id = item.idTipoUsuario})'"> |
+                <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "TipoUsuario", new { id = item.idTipoUsuario })'">|
+                <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "TipoUsuario", new { id = item.idTipoUsuario })'">
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <input type="button" value="Regresar al Menú" class="btn btn-default" onclick="location.href='@Url.Action("TipoUsuario" ,"Home")'">
+
+</p>

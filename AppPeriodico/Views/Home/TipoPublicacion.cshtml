@@ -1,0 +1,54 @@
+﻿@model List<AppPeriodico.Models.ViewModels.ListTipoPublicacion>
+
+@{
+    ViewBag.Title = "Tipo Publicaciones";
+}
+
+    <html>
+    <body>
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Tipos de Publicacion</b></h1>
+    </body>
+    </html>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-bordered">
+        <tr>
+
+            <th>idTipoPublicacion</th>
+            <th>Descripcion</th>
+            <th>Estatus</th>
+        </tr>
+
+        @foreach (var oElemento in Model)
+        {
+    <tr>
+        <td>
+            @oElemento.idTipoPublicacion
+        </td>
+        <td>
+            @oElemento.Descripcion
+        </td>
+        <td>
+            @oElemento.Estatus
+        </td>
+        <td>
+            <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "TipoPublicacion", new { id= oElemento.idTipoPublicacion })'"> |
+            <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "TipoPublicacion", new { id= oElemento.idTipoPublicacion })'"> |
+            <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Details", "TipoPublicacion", new { id= oElemento.idTipoPublicacion })'">
+        </td>
+    </tr>
+        }
+
+    </table>
+
+

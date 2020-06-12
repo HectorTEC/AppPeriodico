@@ -1,0 +1,60 @@
+﻿@model List<AppPeriodico.Models.ViewModels.ListComentario>
+
+@{
+    ViewBag.Title = "Mis comentarios";
+}
+
+    <html>
+    <body>
+        <style>
+            #Encabezado {
+                color: black;
+                padding: 20px;
+                text-align: center;
+                font-family: 'Juice ITC';
+                font-size: 400%;
+            }
+        </style>
+        <h1 id="Encabezado"><b>Comentarios</b></h1>
+    </body>
+    </html>
+    <p>
+        @Html.ActionLink("Crear nuevo comentario", "Create")
+    </p>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        idComentario
+                    </th>
+                    <th>
+                        Descripcion
+                    </th>
+                    <th>
+                        Estatus
+                    </th>
+                </tr>
+
+                @foreach (var oElemento in Model)
+                {
+            <tr>
+                <th>
+                    @oElemento.idComentario
+                </th>
+                <td>
+                    @oElemento.Descripcion
+                </td>
+                <td>
+                    @oElemento.Estatus
+                </td>
+                <td>
+                    <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit","Comentario", new { id= oElemento.idComentario})'"> |
+                    <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete","Comentario", new { id= oElemento.idComentario})'"> |
+                    <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details","Comentario", new { id= oElemento.idComentario})'">
+                </td>
+            </tr>
+                }
+
+            </table>
+

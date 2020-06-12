@@ -1,0 +1,86 @@
+﻿@model IEnumerable<AppPeriodico.Models.Publicacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+<html>
+<body>
+    <style>
+        #Encabezado {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Juice ITC';
+            font-size: 400%;
+        }
+    </style>
+    <h1 id="Encabezado"><b>Publicaciones</b></h1>
+</body>
+</html>
+
+<p>
+    <input type="button" value="Crear Nueva Publicación" class="btn btn-default" onclick="location.href='@Url.Action("Create" ,"Publicacion")'">
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePublicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPublicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPublicacion.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombrePublicacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaPublicacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Categoria.NombreCategoria)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipoPublicacion.Descripcion)
+    </td>
+    <td>
+        <input type="button" value="Editar" class="btn btn-default" onclick="location.href='@Url.Action("Edit", "Publicacion", new { id = item.idPublicacion })'"> |
+        <input type="button" value="Detalles" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Publicacion", new { id = item.idPublicacion })'">|
+        <input type="button" value="Eliminar" class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Publicacion", new { id = item.idPublicacion })'">
+    </td>
+</tr>
+    }
+
+</table>
+<p>
+    <input type="button" value="Regresar al Menú" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Home")'">
+</p>
